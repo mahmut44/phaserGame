@@ -36,6 +36,8 @@ trollSport.prototype = {
 
         star.body.bounce.y = 0.44;
         star.body.gravity.y = 200;
+		//star.body.damping = 1;
+		
         star.body.collideWorldBounds = true;
         ui = this.game.add.text(this.game.camera.centerX/2, this.game.camera.centerY/2, 'Strenght: 0',  { font: "16px Arial", fill: "#ffffff", align: "center" });
         ui.anchor.setTo(0.5, 0.5);
@@ -79,8 +81,8 @@ trollSport.prototype = {
     },//updateStrength
     manageVel: function(o) {
         if ((touchground) && (o.y > 0)){
+			star.body.damping = 0.9;
             console.log('ground slows down');
-            if (o.x > 0) o.x--;
         }
     },//manageVel
     createPlayer: function(){
