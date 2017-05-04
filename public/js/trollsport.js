@@ -82,6 +82,7 @@ trollSport.prototype = {
     manageVel: function(o) {
         if ((touchground) && (o.y > 0)){
 			star.body.damping = 0.9;
+			star.body.velocity.x= (star.body.velocity.x)/1.1;
             console.log('ground slows down');
         }
     },//manageVel
@@ -98,6 +99,7 @@ trollSport.prototype = {
     manageCursors: function(){
         //  Reset the players velocity (movement)
             player.body.velocity.x = 0;
+
 
             if (cursors.left.isDown)
             {
